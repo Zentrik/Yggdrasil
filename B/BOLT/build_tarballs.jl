@@ -141,7 +141,7 @@ cmake -GNinja ${LLVM_SRCDIR} ${CMAKE_FLAGS[@]} -DCMAKE_CXX_FLAGS=\"${CMAKE_CPP_F
 ninja -j${nproc} -vv
 
 # Install!
-ninja bolt
+ninja install
 
 install_license ${WORKSPACE}/srcdir/llvm-project/llvm/LICENSE.TXT
 """
@@ -177,3 +177,4 @@ end
 version = v"18.1.3"
 build_tarballs(ARGS, configure_build(ARGS, version)...;
                preferred_gcc_version=v"10", preferred_llvm_version=v"16", julia_compat="1.12")
+
