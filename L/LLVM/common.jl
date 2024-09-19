@@ -138,7 +138,10 @@ if [[ "${LLVM_MAJ_VER}" -gt "12" ]]; then
     ninja -j${nproc} mlir-linalg-ods-yaml-gen
 fi
 if [[ "${LLVM_MAJ_VER}" -gt "14" ]]; then
-    ninja -j${nproc} clang-tidy-confusable-chars-gen clang-pseudo-gen mlir-pdll
+    ninja -j${nproc} clang-tidy-confusable-chars-gen mlir-pdll
+fi
+if [[ "${LLVM_MAJ_VER}" -gt "14" ]] && [[ "${LLVM_MAJ_VER}" -le "20" ]]; then
+    ninja -j${nproc} clang-pseudo-gen
 fi
 popd
 
